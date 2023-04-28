@@ -17,5 +17,6 @@ To play you need to save this game `git@github.com:Bambukin/hangman.git`
 Execute the following line in the console to run the program:
 
 ```
-ruby main.rb
+bundle install
+bundle exec ruby main.rb
 ```

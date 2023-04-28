@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game
   TOTAL_ERRORS_ALLOWED = 7
 
@@ -23,14 +25,14 @@ class Game
   end
 
   def lost?
-    errors_allowed == 0
+    errors_allowed.zero?
   end
 
   def normalize_letter(letter)
-    if letter == "Ё"
-      "Е"
-    elsif letter == "Й"
-      "И"
+    if letter == 'Ё'
+      'Е'
+    elsif letter == 'Й'
+      'И'
     else
       letter
     end
@@ -45,9 +47,7 @@ class Game
   end
 
   def play!(letter)
-    if !over? && !@user_guesses.include?(normalize_letter(letter))
-      @user_guesses << normalize_letter(letter)
-    end
+    @user_guesses << normalize_letter(letter) if !over? && !@user_guesses.include?(normalize_letter(letter))
   end
 
   def word
